@@ -16,3 +16,8 @@ publish/
 # OS files
 Thumbs.db
 desktop.ini
+
+# graphify: keep the graph and report, not the rebuildable cache, the HTML view or the local root path
+graphify-out/cache/
+graphify-out/graph.html
+graphify-out/.graphify_root

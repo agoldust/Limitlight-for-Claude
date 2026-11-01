@@ -1,0 +1,242 @@
+{
+  "ClaudeUsageMonitor/AboutWindow.xaml": {
+    "mtime": 1792850612.3601408,
+    "seen": 1793533210.9744065,
+    "ast_hash": "42898f9db65e4d4863518e7b3c5f058b",
+    "semantic_hash": "42898f9db65e4d4863518e7b3c5f058b"
+  },
+  "ClaudeUsageMonitor/AboutWindow.xaml.cs": {
+    "mtime": 1792850328.3098779,
+    "seen": 1793533210.9744134,
+    "ast_hash": "a78d08dc5b976a0f32262af444ab7740",
+    "semantic_hash": "a78d08dc5b976a0f32262af444ab7740"
+  },
+  "ClaudeUsageMonitor/App.xaml": {
+    "mtime": 1792850611.3061726,
+    "seen": 1793533210.974416,
+    "ast_hash": "423329e08edd3b4142ea3b8f7bb601a1",
+    "semantic_hash": "423329e08edd3b4142ea3b8f7bb601a1"
+  },
+  "ClaudeUsageMonitor/App.xaml.cs": {
+    "mtime": 1793040775.289689,
+    "seen": 1793533210.9744182,
+    "ast_hash": "6f916e22a16ea2f8f8a07a8561ef5e0f",
+    "semantic_hash": "6f916e22a16ea2f8f8a07a8561ef5e0f"
+  },
+  "ClaudeUsageMonitor/ClaudeUsageMonitor.csproj": {
+    "mtime": 1793445530.739988,
+    "seen": 1793533210.9744196,
+    "ast_hash": "34371416b06bd7cdb20cb956b6e997de",
+    "semantic_hash": "34371416b06bd7cdb20cb956b6e997de"
+  },
+  "ClaudeUsageMonitor/Controls/GlassDialog.cs": {
+    "mtime": 1792848898.981535,
+    "seen": 1793533210.9744213,
+    "ast_hash": "00a1ed12709857d1a72629838160dece",
+    "semantic_hash": "00a1ed12709857d1a72629838160dece"
+  },
+  "ClaudeUsageMonitor/Controls/GlassEffect.cs": {
+    "mtime": 1792847045.2173984,
+    "seen": 1793533210.9744227,
+    "ast_hash": "ee82f40ad7a676d31b928b52bb56bbd0",
+    "semantic_hash": "ee82f40ad7a676d31b928b52bb56bbd0"
+  },
+  "ClaudeUsageMonitor/Controls/MaximizeFix.cs": {
+    "mtime": 1792849826.9716716,
+    "seen": 1793533210.9744244,
+    "ast_hash": "415bf44892c12c784e1a637fcb39e4e3",
+    "semantic_hash": "415bf44892c12c784e1a637fcb39e4e3"
+  },
+  "ClaudeUsageMonitor/Controls/Palette.cs": {
+    "mtime": 1792927527.394264,
+    "seen": 1793533210.9744256,
+    "ast_hash": "9baad05f634eb9711536b6e2101bd2ae",
+    "semantic_hash": "9baad05f634eb9711536b6e2101bd2ae"
+  },
+  "ClaudeUsageMonitor/Controls/RingGauge.cs": {
+    "mtime": 1792847247.7906163,
+    "seen": 1793533210.9744272,
+    "ast_hash": "24f305cd2172eea654bd7804f0df28d5",
+    "semantic_hash": "24f305cd2172eea654bd7804f0df28d5"
+  },
+  "ClaudeUsageMonitor/LoginWindow.xaml": {
+    "mtime": 1792850610.1880772,
+    "seen": 1793533210.9744287,
+    "ast_hash": "325f33552bf4811dd92878fde5853549",
+    "semantic_hash": "325f33552bf4811dd92878fde5853549"
+  },
+  "ClaudeUsageMonitor/LoginWindow.xaml.cs": {
+    "mtime": 1792845752.8850605,
+    "seen": 1793533210.9744303,
+    "ast_hash": "67e20a7581d329d2d6319f5ecc4c805f",
+    "semantic_hash": "67e20a7581d329d2d6319f5ecc4c805f"
+  },
+  "ClaudeUsageMonitor/MainWindow.xaml": {
+    "mtime": 1792928803.9268095,
+    "seen": 1793533210.9744315,
+    "ast_hash": "dfe9c1f289b0f6ee0eb143a420a6dc3d",
+    "semantic_hash": "dfe9c1f289b0f6ee0eb143a420a6dc3d"
+  },
+  "ClaudeUsageMonitor/MainWindow.xaml.cs": {
+    "mtime": 1793445381.7120197,
+    "seen": 1793533210.9744327,
+    "ast_hash": "9b577e313f52277cc120b65216774136",
+    "semantic_hash": "9b577e313f52277cc120b65216774136"
+  },
+  "ClaudeUsageMonitor/Models/AccountInfo.cs": {
+    "mtime": 1792845065.67082,
+    "seen": 1793533210.9744344,
+    "ast_hash": "9d94138940eb2778e8812d01049a5009",
+    "semantic_hash": "9d94138940eb2778e8812d01049a5009"
+  },
+  "ClaudeUsageMonitor/Models/AppSettings.cs": {
+    "mtime": 1792850493.6188672,
+    "seen": 1793533210.9744358,
+    "ast_hash": "85256edc82f171e5427e2a036f2c9df7",
+    "semantic_hash": "85256edc82f171e5427e2a036f2c9df7"
+  },
+  "ClaudeUsageMonitor/Models/GridRows.cs": {
+    "mtime": 1792927445.1709766,
+    "seen": 1793533210.9744372,
+    "ast_hash": "947f989a040da1975bf1546d8487a53c",
+    "semantic_hash": "947f989a040da1975bf1546d8487a53c"
+  },
+  "ClaudeUsageMonitor/Models/LiveUsage.cs": {
+    "mtime": 1793445353.9719977,
+    "seen": 1793533210.9744387,
+    "ast_hash": "c2df1ca0444b6e4251d2523b06a35c49",
+    "semantic_hash": "c2df1ca0444b6e4251d2523b06a35c49"
+  },
+  "ClaudeUsageMonitor/Models/ResetCountdown.cs": {
+    "mtime": 1792927445.9911556,
+    "seen": 1793533210.9744399,
+    "ast_hash": "107623116408d4dd4729d083bcea2906",
+    "semantic_hash": "107623116408d4dd4729d083bcea2906"
+  },
+  "ClaudeUsageMonitor/Models/UsageRecord.cs": {
+    "mtime": 1792842896.0426924,
+    "seen": 1793533210.9744415,
+    "ast_hash": "6de112cfac3fc21aae70ee4a1e61abbc",
+    "semantic_hash": "6de112cfac3fc21aae70ee4a1e61abbc"
+  },
+  "ClaudeUsageMonitor/Models/UsageSummary.cs": {
+    "mtime": 1792846548.232138,
+    "seen": 1793533210.9744427,
+    "ast_hash": "2bc6f8df05cb4038b576f7800882e9f4",
+    "semantic_hash": "2bc6f8df05cb4038b576f7800882e9f4"
+  },
+  "ClaudeUsageMonitor/Services/AccountReader.cs": {
+    "mtime": 1792845066.7308514,
+    "seen": 1793533210.9744444,
+    "ast_hash": "6ef4704398fd824852fc30ea301c6b10",
+    "semantic_hash": "6ef4704398fd824852fc30ea301c6b10"
+  },
+  "ClaudeUsageMonitor/Services/AppInfo.cs": {
+    "mtime": 1792850326.1675417,
+    "seen": 1793533210.9744458,
+    "ast_hash": "c255eac7b2782f36e6c7fc8d4f25ca92",
+    "semantic_hash": "c255eac7b2782f36e6c7fc8d4f25ca92"
+  },
+  "ClaudeUsageMonitor/Services/ClaudeLogReader.cs": {
+    "mtime": 1792915211.842038,
+    "seen": 1793533210.9744473,
+    "ast_hash": "928b2fbe8241e15f3169650c3ef73cda",
+    "semantic_hash": "928b2fbe8241e15f3169650c3ef73cda"
+  },
+  "ClaudeUsageMonitor/Services/ClaudePaths.cs": {
+    "mtime": 1792842614.4299786,
+    "seen": 1793533210.9744487,
+    "ast_hash": "588cfc317fa15a369ecefd9687e89652",
+    "semantic_hash": "588cfc317fa15a369ecefd9687e89652"
+  },
+  "ClaudeUsageMonitor/Services/ClaudeWebSession.cs": {
+    "mtime": 1792915427.9816353,
+    "seen": 1793533210.97445,
+    "ast_hash": "80f922b8057875f6b92e34fa5806a79d",
+    "semantic_hash": "80f922b8057875f6b92e34fa5806a79d"
+  },
+  "ClaudeUsageMonitor/Services/DebugLog.cs": {
+    "mtime": 1792845699.825302,
+    "seen": 1793533210.9744518,
+    "ast_hash": "6756b1f126850ecc831d1bac0e037001",
+    "semantic_hash": "6756b1f126850ecc831d1bac0e037001"
+  },
+  "ClaudeUsageMonitor/Services/LiveUsageParser.cs": {
+    "mtime": 1792846475.5212455,
+    "seen": 1793533210.9744532,
+    "ast_hash": "8d9ea59121d7de1510c796ab78289937",
+    "semantic_hash": "8d9ea59121d7de1510c796ab78289937"
+  },
+  "ClaudeUsageMonitor/Services/LiveUsageService.cs": {
+    "mtime": 1793445353.9719977,
+    "seen": 1793533210.9744546,
+    "ast_hash": "54ea736b54ec08b6cb693baa0e2c3b0b",
+    "semantic_hash": "54ea736b54ec08b6cb693baa0e2c3b0b"
+  },
+  "ClaudeUsageMonitor/Services/MonitorHub.cs": {
+    "mtime": 1792928928.4072247,
+    "seen": 1793533210.974456,
+    "ast_hash": "9282fda597fc2cd83156d9ea593f8fa9",
+    "semantic_hash": "9282fda597fc2cd83156d9ea593f8fa9"
+  },
+  "ClaudeUsageMonitor/Services/PricingTable.cs": {
+    "mtime": 1792842869.6347902,
+    "seen": 1793533210.9744575,
+    "ast_hash": "e732f88e6a8161b6dfaab42a239b23b1",
+    "semantic_hash": "e732f88e6a8161b6dfaab42a239b23b1"
+  },
+  "ClaudeUsageMonitor/Services/SettingsStore.cs": {
+    "mtime": 1792849760.9903002,
+    "seen": 1793533210.974459,
+    "ast_hash": "1d93971c52bbd585683c56d0f555c3f7",
+    "semantic_hash": "1d93971c52bbd585683c56d0f555c3f7"
+  },
+  "ClaudeUsageMonitor/Services/StartupRegistration.cs": {
+    "mtime": 1792849779.7865853,
+    "seen": 1793533210.9744601,
+    "ast_hash": "d3c998a9a8965290a52c63ab0232ba7d",
+    "semantic_hash": "d3c998a9a8965290a52c63ab0232ba7d"
+  },
+  "ClaudeUsageMonitor/Services/UsageAggregator.cs": {
+    "mtime": 1792846549.2925947,
+    "seen": 1793533210.9744618,
+    "ast_hash": "4c4cdea0ab803a85baac059e386b6e19",
+    "semantic_hash": "4c4cdea0ab803a85baac059e386b6e19"
+  },
+  "ClaudeUsageMonitor/Services/UsageFormatting.cs": {
+    "mtime": 1793445381.7110188,
+    "seen": 1793533210.974463,
+    "ast_hash": "80b4f14fb3772e4585c954c7616a4628",
+    "semantic_hash": "80b4f14fb3772e4585c954c7616a4628"
+  },
+  "ClaudeUsageMonitor/SettingsWindow.xaml": {
+    "mtime": 1792850491.1085947,
+    "seen": 1793533210.9744642,
+    "ast_hash": "4d082b257dc118d756ca4f4029a3a6fb",
+    "semantic_hash": "4d082b257dc118d756ca4f4029a3a6fb"
+  },
+  "ClaudeUsageMonitor/SettingsWindow.xaml.cs": {
+    "mtime": 1792850489.7775922,
+    "seen": 1793533210.9744658,
+    "ast_hash": "d8d97ef3f4d50a798c9cb15d72fffab5",
+    "semantic_hash": "d8d97ef3f4d50a798c9cb15d72fffab5"
+  },
+  "ClaudeUsageMonitor/TrayIcon.cs": {
+    "mtime": 1793445381.7130194,
+    "seen": 1793533210.974467,
+    "ast_hash": "9992b19e66d7109a44dce40ef3c410fc",
+    "semantic_hash": "9992b19e66d7109a44dce40ef3c410fc"
+  },
+  "ClaudeUsageMonitor/WidgetWindow.xaml": {
+    "mtime": 1792927529.0564587,
+    "seen": 1793533210.9744687,
+    "ast_hash": "f9394c77c5efce73fa2ec5d3263937fa",
+    "semantic_hash": "f9394c77c5efce73fa2ec5d3263937fa"
+  },
+  "ClaudeUsageMonitor/WidgetWindow.xaml.cs": {
+    "mtime": 1793445381.7130194,
+    "seen": 1793533210.9744701,
+    "ast_hash": "8caddecc81e8695618e3d7dc0a74df8d",
+    "semantic_hash": "8caddecc81e8695618e3d7dc0a74df8d"
+  }
+}
