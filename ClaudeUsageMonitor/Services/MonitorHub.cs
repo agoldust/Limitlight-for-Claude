@@ -22,6 +22,9 @@ public sealed class MonitorHub : IDisposable
     private readonly DispatcherTimer _resetTimer = new();
     private static readonly TimeSpan ResetGrace = TimeSpan.FromSeconds(5);
 
+    // At Windows sign-in or after sleep the network is often not ready; retry this soon while nothing is shown.
+    private static readonly TimeSpan ErrorRetry = TimeSpan.FromSeconds(15);
+
     // A timed refresh and the fetch right after sign-in can overlap; one live fetch at a time,
     // so a timeout that restarts the hidden browser cannot break a fetch already in progress.
     private readonly SemaphoreSlim _liveGate = new(1, 1);
@@ -41,7 +44,7 @@ public sealed class MonitorHub : IDisposable
             WindowStyle = WindowStyle.None,
             ShowInTaskbar = false,
             ShowActivated = false,
-            Title = "Claude Usage Monitor browser host"
+            Title = "Limitlight browser host"
         };
         new WindowInteropHelper(_browserHost).EnsureHandle();
 
@@ -59,6 +62,18 @@ public sealed class MonitorHub : IDisposable
             _resetTimer.Stop();
             await RefreshAsync();
         };
+
+        // Data is stale after sleep; reload as soon as Windows wakes up.
+        Microsoft.Win32.SystemEvents.PowerModeChanged += OnPowerModeChanged;
+    }
+
+    private void OnPowerModeChanged(object? sender, Microsoft.Win32.PowerModeChangedEventArgs e)
+    {
+        if (e.Mode == Microsoft.Win32.PowerModes.Resume)
+        {
+            // Raised on a system thread.
+            _browserHost.Dispatcher.BeginInvoke(async () => await RefreshAsync());
+        }
     }
 
     /// <summary>Raised on the UI thread when loading starts or finishes, so windows can redraw.</summary>
@@ -263,6 +278,13 @@ public sealed class MonitorHub : IDisposable
     {
         _resetTimer.Stop();
         var now = DateTimeOffset.Now;
+        if (LastGoodLive is null && LiveResult?.Status == LiveUsageStatus.Error)
+        {
+            _resetTimer.Interval = ErrorRetry;
+            _resetTimer.Start();
+            return;
+        }
+
         var next = LastGoodLive?.Limits.Select(l => l.ResetsAt).Where(r => r > now).Min();
         if (next is { } reset && reset + ResetGrace - now is var wait && wait < _timer.Interval)
         {
@@ -288,6 +310,7 @@ public sealed class MonitorHub : IDisposable
     /// <summary>Stops the timer and closes the hidden browser.</summary>
     public void Dispose()
     {
+        Microsoft.Win32.SystemEvents.PowerModeChanged -= OnPowerModeChanged;
         _timer.Stop();
         _resetTimer.Stop();
         _webSession.Dispose();

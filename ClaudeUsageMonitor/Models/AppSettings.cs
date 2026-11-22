@@ -30,6 +30,9 @@ public sealed class AppSettings
     /// <summary>True when the widget was open the last time the app closed, so it opens again.</summary>
     public bool WidgetVisible { get; set; }
 
+    /// <summary>True for the narrow widget: only the gauges, stacked vertically.</summary>
+    public bool WidgetCompact { get; set; }
+
     /// <summary>When starting with Windows, true to open only the widget instead of the full dashboard.</summary>
     public bool StartWidgetOnly { get; set; } = true;
 

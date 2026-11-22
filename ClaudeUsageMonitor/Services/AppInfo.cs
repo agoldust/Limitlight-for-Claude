@@ -14,7 +14,7 @@ public static class AppInfo
     private static readonly Assembly Assembly = typeof(AppInfo).Assembly;
 
     /// <summary>The app's name.</summary>
-    public const string Name = "Claude Usage Monitor";
+    public const string Name = "Limitlight for Claude";
 
     /// <summary>The author's name.</summary>
     public const string Author = "Akbar Goldoust";
@@ -31,7 +31,7 @@ public static class AppInfo
     public const string LinkedInUrl = "";
 
     /// <summary>The source code repository.</summary>
-    public const string RepositoryUrl = "https://github.com/agoldust/Claude-Monitor-Usage-Statics";
+    public const string RepositoryUrl = "https://github.com/agoldust/Limitlight-for-Claude";
 
     /// <summary>The license file in the repository.</summary>
     public const string LicenseUrl = RepositoryUrl + "/blob/main/LICENSE";
