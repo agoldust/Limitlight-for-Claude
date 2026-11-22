@@ -16,8 +16,8 @@ Get the installer (version 0.4.2) from the product page: [goldoust.de/apps/claud
 ## Build and run
 
 ```
-dotnet build ClaudeUsageMonitor\ClaudeUsageMonitor.csproj -c Release
-dotnet run --project ClaudeUsageMonitor\ClaudeUsageMonitor.csproj -c Release
+dotnet build Limitlight\Limitlight.csproj -c Release
+dotnet run --project Limitlight\Limitlight.csproj -c Release
 ```
 
 Start only the widget with `--widget`.

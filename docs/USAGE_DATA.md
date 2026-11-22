@@ -44,7 +44,7 @@ How it works:
 
 ## Cost estimates
 
-Cost is a display estimate at list prices, not a bill. Rates per million tokens are in `ClaudeUsageMonitor\Services\PricingTable.cs`: Opus 15 / 75, Haiku 0.80 / 4, any other model (including Sonnet) 3 / 15 (input / output). Cache writes are 1.25 times the input rate and cache reads 0.10 times.
+Cost is a display estimate at list prices, not a bill. Rates per million tokens are in `Limitlight\Services\PricingTable.cs`: Opus 15 / 75, Haiku 0.80 / 4, any other model (including Sonnet) 3 / 15 (input / output). Cache writes are 1.25 times the input rate and cache reads 0.10 times.
 
 The prices are not yet verified against Anthropic's pricing page.
 
