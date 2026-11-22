@@ -4,7 +4,9 @@ A Windows desktop app (WPF) that shows your Claude Code usage and, after you sig
 
 ## Download
 
-Get the installer (version 0.4.2) from the product page: [goldoust.de/apps/claude_usage_monitor](https://www.goldoust.de/apps/claude_usage_monitor/) ([Deutsch](https://www.goldoust.de/apps/claude_usage_monitor/de/)). The page lists the installer's SHA-256 checksum. The installer is per user and needs no administrator rights. It is not code-signed yet, so Windows SmartScreen may warn; choose More info, then Run anyway.
+Get the installer (version 0.5.0) from the [Releases page](https://github.com/agoldust/Limitlight-for-Claude/releases/latest) or the product page: [goldoust.de/apps/claude_usage_monitor](https://www.goldoust.de/apps/claude_usage_monitor/) ([Deutsch](https://www.goldoust.de/apps/claude_usage_monitor/de/)). Both list the installer's SHA-256 checksum. The installer is per user and needs no administrator rights, and it upgrades an existing Claude Usage Monitor install in place. It is not code-signed yet, so Windows SmartScreen may warn; choose More info, then Run anyway.
+
+To build the installer yourself: publish with `dotnet publish Limitlight\Limitlight.csproj -c Release -r win-x64 --self-contained true -o publish\win-x64`, then compile [installer/Limitlight.iss](installer/Limitlight.iss) with Inno Setup 6. The output is `publish\installer\LimitlightForClaude-Setup-<version>.exe`.
 
 ## Requirements
 
