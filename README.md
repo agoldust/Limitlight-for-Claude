@@ -35,8 +35,6 @@ Start only the widget with `--widget`.
 - **Dark glass look.** The dashboard, widget, Settings and About share one dark glass theme with blur. The dashboard opacity defaults to 80%; Settings and About never go below 70% so their text stays readable.
 - **Settings.** Refresh interval (30 seconds to 1 hour), widget and dashboard opacity, blur, always on top, start with Windows.
 - **About.** Author, MIT license, version and build details (with a copy button for bug reports), a data and privacy summary, a disclaimer and credits.
-
-Architecture diagrams are in [docs/DIAGRAMS.md](docs/DIAGRAMS.md).
 - **Start with Windows.** Registers the exe in the current user's Run key. The path is the exe's location at the time you turn it on; turn it off and on again if you move the app. Optionally opens only the widget.
 - **Single instance.** Starting the app again shows the dashboard. Closing all windows keeps the app running in the notification area; use Exit in the tray menu to quit.
 - **Windows app identity.** The app registers as `de.goldoust.limitlight` (AppUserModelID), so Windows groups its taskbar button and notifications under its own icon. The installer's shortcuts use the same ID, so a pinned icon matches the running app.
@@ -44,4 +42,8 @@ Architecture diagrams are in [docs/DIAGRAMS.md](docs/DIAGRAMS.md).
 - **Local usage.** Tokens, requests and estimated cost for today, 7 days, 30 days and all time, from Claude Code logs.
 - **Debug log.** `%LOCALAPPDATA%\ClaudeUsageMonitor\logs\app.log`.
 
-More: [USAGE_DATA.md](docs/USAGE_DATA.md), [ARCHITECTURE.md](docs/ARCHITECTURE.md), [ROADMAP.md](docs/ROADMAP.md).
+More: [USAGE_DATA.md](docs/USAGE_DATA.md), [ARCHITECTURE.md](docs/ARCHITECTURE.md), [DIAGRAMS.md](docs/DIAGRAMS.md), [ROADMAP.md](docs/ROADMAP.md).
+
+## License
+
+MIT. See [LICENSE](LICENSE).
