@@ -50,7 +50,44 @@ public partial class WidgetWindow : Window
             RememberPosition();
         };
 
+        ApplyCompact();
         Render();
+    }
+
+    /// <summary>
+    /// Switches between the full widget and the compact one: only the gauges, stacked in one narrow column.
+    /// Keeps the right edge in place, since the widget usually sits at the right of the screen.
+    /// </summary>
+    private void ApplyCompact()
+    {
+        var compact = _settings.WidgetCompact;
+        CompactMenuItem.IsChecked = compact;
+        GaugeList.Tag = compact ? 1 : 2;
+        var extras = compact ? Visibility.Collapsed : Visibility.Visible;
+        HeaderPanel.Visibility = extras;
+        TodayPanel.Visibility = extras;
+        MiniChart.Visibility = extras;
+        UpdatedText.Visibility = extras;
+        LiveText.MaxWidth = BlockedText.MaxWidth = compact ? 100 : 270;
+
+        var oldWidth = Width;
+        Width = compact ? 116 : 300;
+        if (IsLoaded)
+        {
+            // Growing near the left edge would push it off screen; stop at the edge instead.
+            Left = Math.Max(SystemParameters.VirtualScreenLeft, Left + oldWidth - Width);
+        }
+    }
+
+    private void CompactMenuItem_Click(object sender, RoutedEventArgs e) => SetCompact(CompactMenuItem.IsChecked);
+
+    /// <summary>Switches to the compact (small) or full widget and saves the choice.</summary>
+    public void SetCompact(bool compact)
+    {
+        _settings.WidgetCompact = compact;
+        ApplyCompact();
+        ApplySettings();
+        RememberPosition();
     }
 
     /// <summary>Applies opacity, blur and always-on-top from the settings.</summary>
@@ -59,20 +96,29 @@ public partial class WidgetWindow : Window
         Topmost = _settings.WidgetTopmost;
         TopmostMenuItem.IsChecked = Topmost;
 
+        // The compact widget is a pill-shaped oval without blur, since blur fills the whole square window.
+        var compact = _settings.WidgetCompact;
+
         // Keep a little alpha even at 0%, because fully clear pixels do not take mouse clicks and the widget could not be dragged.
         var alpha = (byte)Math.Round(Math.Max(_settings.WidgetOpacity, 0.02) * 255);
         var background = new SolidColorBrush(Color.FromArgb(alpha, 0x1C, 0x1B, 0x19));
         background.Freeze();
         Root.Background = background;
 
-        var blurred = _settings.WidgetBlur && GlassEffect.SetBlur(this, true);
-        if (!_settings.WidgetBlur)
+
+        // Extra top and bottom room keeps the gauges and labels inside the rounded ends.
+        // Compact: about 12 px between the gauge circles and the oval's edge.
+        Root.Padding = compact ? new Thickness(2, 11, 2, 15) : new Thickness(14, 10, 14, 12);
+
+        var useBlur = _settings.WidgetBlur && !compact;
+        var blurred = useBlur && GlassEffect.SetBlur(this, true);
+        if (!useBlur)
         {
             GlassEffect.SetBlur(this, false);
         }
 
         // Blur fills the whole window rectangle, so rounded corners would show square blurred corners.
-        Root.CornerRadius = blurred ? new CornerRadius(0) : new CornerRadius(12);
+        Root.CornerRadius = compact ? new CornerRadius(Width / 2) : blurred ? new CornerRadius(0) : new CornerRadius(12);
     }
 
     private void OnHubChanged(object? sender, EventArgs e) => Render();

@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:c="clr-namespace:ClaudeUsageMonitor.Controls"
         xmlns:s="clr-namespace:ClaudeUsageMonitor.Services"
-        Title="About Claude Usage Monitor"
+        Title="About Limitlight for Claude"
         Width="560" Height="700" MinWidth="420" MinHeight="420"
         WindowStartupLocation="CenterOwner" ShowInTaskbar="False">
 

@@ -17,7 +17,7 @@ public partial class App : Application
     /// Windows app identity for taskbar grouping and notifications. The installer gives its shortcuts the same
     /// value, so pinned icons match the running app. Never change it once released.
     /// </summary>
-    public const string AppUserModelId = "de.goldoust.claudeusagemonitor";
+    public const string AppUserModelId = "de.goldoust.limitlight";
 
     private Mutex? _instanceMutex;
     private EventWaitHandle? _showSignal;
@@ -61,6 +61,9 @@ public partial class App : Application
         Hub = new MonitorHub(Settings);
         _tray = new TrayIcon(Hub);
 
+        // Start first, so the widget's refresh-on-open below joins this first refresh instead of running before the timer.
+        Hub.Start();
+
         var widgetOnly = e.Args.Any(a => a.Equals(StartupRegistration.WidgetSwitch, StringComparison.OrdinalIgnoreCase));
         if (!widgetOnly)
         {
@@ -71,8 +74,6 @@ public partial class App : Application
         {
             ShowWidget();
         }
-
-        Hub.Start();
     }
 
     /// <summary>Opens the dashboard, or brings it to the front if it is already open.</summary>
@@ -107,11 +108,24 @@ public partial class App : Application
     public bool IsWidgetOpen => _widget is not null;
 
     /// <summary>Opens the widget, or brings it to the front if it is already open.</summary>
-    public void ShowWidget()
+    /// <param name="compact">True for the small widget, false for the full one, null to keep the saved choice.</param>
+    public void ShowWidget(bool? compact = null)
     {
         if (_exiting)
         {
             return;
+        }
+
+        if (compact is { } small)
+        {
+            if (_widget is null)
+            {
+                Settings.WidgetCompact = small;
+            }
+            else
+            {
+                _widget.SetCompact(small);
+            }
         }
 
         if (_widget is null)
@@ -134,6 +148,9 @@ public partial class App : Application
             Settings.WidgetVisible = true;
             SaveSettings();
             _dashboard?.UpdateWidgetButton();
+
+            // Fresh numbers every time the widget opens; does nothing while a refresh is already running.
+            _ = Hub.RefreshAsync();
         }
 
         _widget.Activate();

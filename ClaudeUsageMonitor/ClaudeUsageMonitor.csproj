@@ -14,12 +14,12 @@
     <Version>0.4.2</Version>
     <!-- Exe icon for File Explorer, the taskbar and shortcuts. Source art is in ..\resources. -->
     <ApplicationIcon>Assets\app.ico</ApplicationIcon>
-    <Product>Claude Usage Monitor</Product>
+    <Product>Limitlight for Claude</Product>
     <Authors>Akbar Goldoust</Authors>
     <Copyright>Copyright (c) 2026 Akbar Goldoust</Copyright>
     <Description>Shows Claude plan limits live from claude.ai and Claude Code token usage from local logs, in a dashboard and an always-on-top widget.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <RepositoryUrl>https://github.com/agoldust/Claude-Monitor-Usage-Statics</RepositoryUrl>
+    <RepositoryUrl>https://github.com/agoldust/Limitlight-for-Claude</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
