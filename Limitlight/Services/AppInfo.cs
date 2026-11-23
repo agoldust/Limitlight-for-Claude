@@ -21,7 +21,7 @@ public static class AppInfo
 
     /// <summary>A short public bio for the About window.</summary>
     public const string AuthorBio =
-        "Software developer building Windows desktop apps with C#, .NET 8 and WPF. " +
+        "Software developer building Windows desktop apps with C#, .NET and WPF. " +
         "This project covers Win32 interop, embedded web views (WebView2), live data dashboards and AI-assisted development with Claude Code.";
 
     /// <summary>The author's GitHub profile.</summary>
@@ -64,7 +64,7 @@ public static class AppInfo
             ? date.ToLocalTime()
             : null;
 
-    /// <summary>The .NET runtime, such as ".NET 8.0.21".</summary>
+    /// <summary>The .NET runtime, such as ".NET 11.0.0".</summary>
     public static string Runtime => RuntimeInformation.FrameworkDescription;
 
     /// <summary>The Windows version, such as "Microsoft Windows 10.0.19045".</summary>

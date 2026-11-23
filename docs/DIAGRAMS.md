@@ -11,7 +11,7 @@ flowchart LR
     user([User])
 
     subgraph pc["Windows PC"]
-        app["Limitlight for Claude<br/>(WPF, .NET 8)"]
+        app["Limitlight for Claude<br/>(WPF, .NET 11)"]
         logs[("Claude Code logs<br/>%USERPROFILE%\.claude\projects\*.jsonl")]
         cfg[("Claude Code config<br/>.claude.json, .credentials.json")]
         store[("App data<br/>settings.json, app.log,<br/>WebView2 session")]
