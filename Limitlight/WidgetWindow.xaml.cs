@@ -1,4 +1,4 @@
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
@@ -147,6 +147,8 @@ public partial class WidgetWindow : Window
             null => "Checking claude.ai...",
             LiveUsageStatus.Ok => "",
             LiveUsageStatus.SignedOut => "Sign in to see live limits (click here)",
+            // Keep older data readable; the full reason is on the dashboard.
+            LiveUsageStatus.Error when _hub.LastGoodLive is { } last => $"Reconnecting... (data from {last.FetchedAt:HH:mm})",
             _ => $"Live limits unavailable: {result.Message}"
         };
         LiveButton.Visibility = LiveText.Text.Length == 0 ? Visibility.Collapsed : Visibility.Visible;

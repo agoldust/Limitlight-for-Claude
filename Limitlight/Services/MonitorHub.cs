@@ -195,6 +195,13 @@ public sealed class MonitorHub : IDisposable
                 NextRefresh = DateTimeOffset.Now + _timer.Interval;
             }
 
+            // After a live error the quick retry comes first; show that time instead.
+            if (LiveResult?.Status == LiveUsageStatus.Error && _resetTimer.IsEnabled &&
+                DateTimeOffset.Now + _resetTimer.Interval is var retry && (NextRefresh is null || retry < NextRefresh))
+            {
+                NextRefresh = retry;
+            }
+
             IsLoading = false;
             OnChanged();
         }
