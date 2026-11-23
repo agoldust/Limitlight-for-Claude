@@ -4,9 +4,9 @@ A Windows desktop app (WPF) that shows your Claude Code usage and, after you sig
 
 ## Download
 
-Get the installer (version 0.5.0) from the [Releases page](https://github.com/agoldust/Limitlight-for-Claude/releases/latest) or the product page: [goldoust.de/apps/claude_usage_monitor](https://www.goldoust.de/apps/claude_usage_monitor/) ([Deutsch](https://www.goldoust.de/apps/claude_usage_monitor/de/)). Both list the installer's SHA-256 checksum. The installer is per user and needs no administrator rights, and it upgrades an existing Claude Usage Monitor install in place. It is not code-signed yet, so Windows SmartScreen may warn; choose More info, then Run anyway.
+Get the installer (version 0.6.0) from the [Releases page](https://github.com/agoldust/Limitlight-for-Claude/releases/latest) or the product page: [goldoust.de/apps/claude_usage_monitor](https://www.goldoust.de/apps/claude_usage_monitor/) ([Deutsch](https://www.goldoust.de/apps/claude_usage_monitor/de/)). Both list the installer's SHA-256 checksum. The installer is per user and needs no administrator rights, and it upgrades an existing Claude Usage Monitor install in place. It is not code-signed yet, so Windows SmartScreen may warn; choose More info, then Run anyway.
 
-To build the installer yourself: publish with `dotnet publish Limitlight\Limitlight.csproj -c Release -r win-x64 --self-contained true -o publish\win-x64`, then compile [installer/Limitlight.iss](installer/Limitlight.iss) with Inno Setup 6. The output is `publish\installer\LimitlightForClaude-Setup-<version>.exe`.
+To build the installer yourself (needs the .NET 11 SDK): publish with `dotnet publish Limitlight\Limitlight.csproj -c Release -r win-x64 --self-contained true -o publish\win-x64`, then compile [installer/Limitlight.iss](installer/Limitlight.iss) with Inno Setup 6. The output is `publish\installer\LimitlightForClaude-Setup-<version>.exe`.
 
 ## Requirements
 
@@ -38,7 +38,7 @@ Start only the widget with `--widget`.
 - **Start with Windows.** Registers the exe in the current user's Run key. The path is the exe's location at the time you turn it on; turn it off and on again if you move the app. Optionally opens only the widget.
 - **Single instance.** Starting the app again shows the dashboard. Closing all windows keeps the app running in the notification area; use Exit in the tray menu to quit.
 - **Windows app identity.** The app registers as `de.goldoust.limitlight` (AppUserModelID), so Windows groups its taskbar button and notifications under its own icon. The installer's shortcuts use the same ID, so a pinned icon matches the running app.
-- **Reliability.** Session logs are read while Claude Code writes them. claude.ai requests time out (20 s fetch, 30 s browser call and start) and the hidden browser restarts; errors are shown in plain language with the retry time.
+- **Reliability.** Session logs are read while Claude Code writes them. claude.ai requests time out (20 s fetch, 30 s browser call and start) and the hidden browser restarts; errors are shown in plain language with the retry time. After any live error, including at Windows start or wake when the network is not ready yet, the app retries every 15 seconds and at once when Windows reports the network is back; meanwhile the last limits stay on screen and the widget shows a short "Reconnecting..." line.
 - **Local usage.** Tokens, requests and estimated cost for today, 7 days, 30 days and all time, from Claude Code logs.
 - **Debug log.** `%LOCALAPPDATA%\ClaudeUsageMonitor\logs\app.log`.
 

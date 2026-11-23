@@ -20,6 +20,7 @@
 - Product page with installer download on goldoust.de, in English and German, with a Download item in the site menu
 - Extra-usage gauge, "extra usage in use" note when a plan limit is used up, and a warning when claude.ai is signed in to a different account than Claude Code (0.4.2)
 - Renamed to Limitlight for Claude (app ID `de.goldoust.limitlight`); small oval widget; tray icon shows the most-used limit as a ring with its percent; tray menu Show widget / Show small widget; refresh on widget open and after sleep; installer script in `installer/` (0.5.0)
+- Retry live limits every 15 s after any error and when the network comes back; widget keeps older limits with a short Reconnecting line; .NET 11 and WebView2 1.0.4370.26 (0.6.0)
 - Coordinator agent (`claude --agent coordinator`)
 - Five project subagents: review, comments, docs/git, error checking, UI advice
 
