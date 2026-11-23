@@ -1,4 +1,4 @@
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Threading;
 using ClaudeUsageMonitor.Models;
@@ -22,7 +22,7 @@ public sealed class MonitorHub : IDisposable
     private readonly DispatcherTimer _resetTimer = new();
     private static readonly TimeSpan ResetGrace = TimeSpan.FromSeconds(5);
 
-    // At Windows sign-in or after sleep the network is often not ready; retry this soon while nothing is shown.
+    // At Windows sign-in or after sleep the network is often not ready; retry this soon after any live error, even while older data is shown.
     private static readonly TimeSpan ErrorRetry = TimeSpan.FromSeconds(15);
 
     // A timed refresh and the fetch right after sign-in can overlap; one live fetch at a time,
@@ -65,6 +65,24 @@ public sealed class MonitorHub : IDisposable
 
         // Data is stale after sleep; reload as soon as Windows wakes up.
         Microsoft.Win32.SystemEvents.PowerModeChanged += OnPowerModeChanged;
+
+        // When the network comes up after sign-in or wake, retry a failed live fetch at once.
+        System.Net.NetworkInformation.NetworkChange.NetworkAvailabilityChanged += OnNetworkAvailabilityChanged;
+    }
+
+    private void OnNetworkAvailabilityChanged(object? sender, System.Net.NetworkInformation.NetworkAvailabilityEventArgs e)
+    {
+        if (e.IsAvailable)
+        {
+            // Raised on a system thread.
+            _browserHost.Dispatcher.BeginInvoke(async () =>
+            {
+                if (!IsLoading && LiveResult?.Status == LiveUsageStatus.Error)
+                {
+                    await RefreshAsync();
+                }
+            });
+        }
     }
 
     private void OnPowerModeChanged(object? sender, Microsoft.Win32.PowerModeChangedEventArgs e)
@@ -278,7 +296,7 @@ public sealed class MonitorHub : IDisposable
     {
         _resetTimer.Stop();
         var now = DateTimeOffset.Now;
-        if (LastGoodLive is null && LiveResult?.Status == LiveUsageStatus.Error)
+        if (LiveResult?.Status == LiveUsageStatus.Error)
         {
             _resetTimer.Interval = ErrorRetry;
             _resetTimer.Start();
@@ -311,6 +329,7 @@ public sealed class MonitorHub : IDisposable
     public void Dispose()
     {
         Microsoft.Win32.SystemEvents.PowerModeChanged -= OnPowerModeChanged;
+        System.Net.NetworkInformation.NetworkChange.NetworkAvailabilityChanged -= OnNetworkAvailabilityChanged;
         _timer.Stop();
         _resetTimer.Stop();
         _webSession.Dispose();
