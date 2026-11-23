@@ -11,7 +11,7 @@ To build the installer yourself: publish with `dotnet publish Limitlight\Limitli
 ## Requirements
 
 - Windows 10 version 1809 or later
-- .NET 8 SDK (to build)
+- .NET 11 SDK (to build)
 - Microsoft Edge WebView2 Runtime (for sign-in and live limits; present on current Windows 10/11)
 - Claude Code installed and used at least once, so its local files exist
 
