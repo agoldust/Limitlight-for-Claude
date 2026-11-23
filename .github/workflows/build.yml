@@ -1,0 +1,41 @@
+# Builds the self-contained app and the Inno Setup installer, and keeps the installer as a build artifact.
+# A v* tag push (for example v0.7.0) is a release build. SignPath signs only artifacts built here.
+name: Build installer
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '11.0.x'
+
+      - name: Publish app
+        run: dotnet publish Limitlight\Limitlight.csproj -c Release -r win-x64 --self-contained true -o publish\win-x64
+
+      - name: Install Inno Setup
+        run: choco install innosetup -y --no-progress
+
+      - name: Build installer
+        run: '& "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe" /Q installer\Limitlight.iss'
+
+      - name: SHA-256
+        run: Get-FileHash publish\installer\*.exe -Algorithm SHA256 | Format-List Path, Hash
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: installer
+          path: publish/installer/*.exe
+          if-no-files-found: error
