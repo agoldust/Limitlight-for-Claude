@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows10.0.17763.0</TargetFramework>
+    <TargetFramework>net11.0-windows10.0.17763.0</TargetFramework>
     <SupportedOSPlatformVersion>10.0.17763.0</SupportedOSPlatformVersion>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -11,7 +11,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <AssemblyName>ClaudeUsageMonitor</AssemblyName>
     <RootNamespace>ClaudeUsageMonitor</RootNamespace>
-    <Version>0.5.0</Version>
+    <Version>0.6.0</Version>
     <!-- Exe icon for File Explorer, the taskbar and shortcuts. Source art is in ..\resources. -->
     <ApplicationIcon>Assets\app.ico</ApplicationIcon>
     <Product>Limitlight for Claude</Product>
@@ -23,7 +23,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.4314.35" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.4370.26" />
   </ItemGroup>
 
   <ItemGroup>

@@ -141,7 +141,7 @@
                     <StackPanel>
                         <TextBlock Text="Credits" Style="{StaticResource HeadingStyle}" />
                         <TextBlock Style="{StaticResource Bullet}"
-                                   Text="Built with .NET 8 (WPF) and Microsoft Edge WebView2. Developed with help from Claude Code." />
+                                   Text="Built with .NET 11 (WPF) and Microsoft Edge WebView2. Developed with help from Claude Code." />
                     </StackPanel>
                 </Border>
             </StackPanel>
